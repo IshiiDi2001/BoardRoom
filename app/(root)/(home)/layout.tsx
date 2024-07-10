@@ -2,6 +2,15 @@ import React, { ReactNode } from "react";
 
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "BoardRoom",
+  description: "Video Conferencing App for the modern workplaces.",
+  icons: {
+    icon: "/icons/logo.png",
+  },
+};
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (

@@ -5,9 +5,8 @@
 import { useGetCalls } from "@/hooks/useGetCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MeetingCard from "./MeetingCard";
-import { Heading1 } from "lucide-react";
 import Loader from "./Loader";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
@@ -24,7 +23,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
       case "upcoming":
         return upcomingCalls;
       case "recordings":
-        return callRecordings;
+        return recordings;
       default:
         return [];
     }
@@ -42,6 +41,21 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         return "";
     }
   };
+
+  useEffect(() => {
+    const fetchRecordings = async () => {
+      const callData = await Promise.all(
+        callRecordings.map((meeting) => meeting.queryRecordings())
+      );
+      const recordings = callData
+        .filter((call) => call.recordings.length > 0)
+        .flatMap((call) => call.recordings);
+
+      setRecordings(recordings);
+    };
+
+    if (type === "recordings") fetchRecordings();
+  }, [type, callRecordings]);
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessages();
@@ -62,18 +76,19 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 : "/icons/recordings.svg"
             }
             title={
-              (meeting as Call).state.custom.description.substring(0, 26) ||
+              (meeting as Call).state?.custom.description.substring(0, 26) ||
+              meeting.filename.substring(0, 20) ||
               "No description"
             }
             date={
-              meeting.state.startsAt.toLocaleString() ||
+              meeting.state?.startsAt.toLocaleString() ||
               meeting.start_time.toLocaleString()
             }
             isPreviousMeeting={type === "ended"}
             buttonIcon1={type === "recordings" ? "/icons/play.svg" : undefined}
             handleClick={
               type === "recordings"
-                ? () => router.push(`/meeting/${meeting.url}`)
+                ? () => router.push(`${meeting.url}`)
                 : () => router.push(`/meeting/${meeting.id}`)
             }
             link={

@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center"> 
+<h1> BoardRoom - Virtual Conference Application </h1>
+<!-- <img src="frontend/public/Talky (1).gif" alt="Demo" width="600"> -->
+  <img src="public/images/ss.png" alt="ScreenShot" width="600">
+  
+</div>
+BoardRoom is a professional enterprise-ready video conferencing application built using Next.js 14, Stream, and Tailwind CSS. It provides a robust platform for seamless video communication, catering to enterprise needs with advanced features and a user-friendly interface.
 
-## Getting Started
+### Talky Live : https://boardroom-ishinis-projects-a5b7d430.vercel.app
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **High-Quality Video Conferencing**: Utilize Stream for high-definition video and audio quality.
+- **Responsive Design**: Fully responsive interface built with Tailwind CSS, ensuring a smooth experience across all devices.
+- **User Authentication**: Secure user authentication with Clerk.
+- **Meeting Management**: Schedule, join, and manage meetings with ease.
+- **Recording and Playback**: Record meetings and play them back at your convenience.
+- **Device Settings**: Customize your video and audio settings before joining a call.
+- **Upcoming and Previous Meetings**: View and manage your scheduled and past meetings.
+- **Cross-Browser Support**: Compatible with all modern web browsers.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14**: React framework for building server-side rendering and static web applications.
+- **Stream**: Provides the core functionality for video and audio streaming.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Clerk**: User management and authentication service.
+- **TypeScript**: Strongly typed programming language that builds on JavaScript.
+- **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
